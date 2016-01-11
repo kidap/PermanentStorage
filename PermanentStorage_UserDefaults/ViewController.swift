@@ -67,12 +67,14 @@ class ViewController: UIViewController {
         let appDelegate : AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let context: NSManagedObjectContext = appDelegate.managedObjectContext
         
-        
+        // Create user
         let newUser = NSEntityDescription.insertNewObjectForEntityForName("User", inManagedObjectContext: context)
         
-        newUser.setValue("SCooper", forKey: "userName")
+        //Set keys
+        newUser.setValue("scooper", forKey: "userName")
         newUser.setValue("Sheldon", forKey: "firstName")
         
+        //Commit changes
         do{
             try context.save()
             print("Save \(newUser.valueForKey("userName")!)")
